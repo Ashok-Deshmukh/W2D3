@@ -1,23 +1,15 @@
 require 'card'
 
 class Deck
-  SUITS = ["spades", "hearts", "clubs", "diamonds"]
-  VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-  def initialize
+
+  attr_reader :cards
+
+  def initialize(cards)
+    @cards = cards
   end
 
-  def make_deck
-    deck = []
-    SUITS.each do |suit|
-      VALUES.each do |value|
-        deck << Card.new(value, suit)
-      end
-    end
-    deck
+  def deal_card
+    raise "The deck is empty!" if cards.empty?
+    cards.shift
   end
-
-
-
-
-
 end
